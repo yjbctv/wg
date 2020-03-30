@@ -71,7 +71,7 @@ login.init = function () {
     credentials: 'same-origin',
     //credentials: 'include', // send cookies even for a cross-origin call
     //redirect: 'follow',
-    mode: 'no-cors',
+    mode: 'cors',
     //body: login.reqBody
     //body: JSON.stringify(login.reqBody)
   };
@@ -117,13 +117,13 @@ login.init = function () {
       headers: Req.currentMeHeaders,
       credentials: 'include', // send cookies even for a cross-origin call
       //redirect: 'follow',
-      mode: 'no-cors'
+      mode: 'cors'
     };
     //http://qmt.yjbctv.com:8081/news/notice/findNotReceiveMessageNumber.do?_dc=1585293464575
     //Req.currentMeHeaders.append('X-Parse-Session-Token', token);
     // qmt.yjbctv.com:8081/news/coldoc/queryCommon.do?iscommand=true&xml=true&searchParameter~%20~%20~createdDate~%20~_h__s_~and~5~3~yyyy-MM-dd~%20~coldocsearch=2020-03-27&searchParameter~%20~%20~updatedDate~%20~_l__s_~and~5~4~yyyy-MM-dd%20HH:mm:ss~%20~coldocsearch=2020-03-27%2023:59:59&posStart=0&count=20
     // Req.currentMeData = new Request(`${apiurl}/notice/findNotReceiveMessageNumber.do`, Req.currentMeOpt);
-    Req.currentMeData = new Request(`${apiurl}/coldoc/queryCommon.do?iscommand=true&xml=true&searchParameter~%20~%20~createdDate~%20~_h__s_~and~5~3~yyyy-MM-dd~%20~coldocsearch=${toDate}&searchParameter~%20~%20~updatedDate~%20~_l__s_~and~5~4~yyyy-MM-dd%20HH:mm:ss~%20~coldocsearch=${toDate}%2023:59:59&posStart=0&count=20`, Req.currentMeOpt);
+    Req.currentMeData = new Request(`${apiurl}/coldoc/queryCommon.do?iscommand=true&xml=true&searchParameter~%20~%20~createdDate~%20~_h__s_~and~5~3~yyyy-MM-dd~%20~coldocsearch=${toDate}&searchParameter~%20~%20~updatedDate~%20~_l__s_~and~5~4~yyyy-MM-dd%20HH:mm:ss~%20~coldocsearch=${toDate}%2023:59:59&posStart=0&count=100`, Req.currentMeOpt);
     //var t = Req.currentMeHeaders.get('X-Parse-Session-Token');
     //console.log(`5.1 ${t}`);
     return fetch(Req.currentMeData);
@@ -161,12 +161,12 @@ login.init = function () {
     //document.getElementById('objectId').innerHTML += "email: " + resLayoutJson.email + "<p>";
     //var cnTime = new Date(resLayoutJson.createdAt).toLocaleDateString('zh-Hans', options);
     //document.getElementById('objectId').innerHTML += "createdAt: " + cnTime + "<p>";
-    document.querySelector('#contentPost').addEventListener('click', event => {
-      const testText = "aaaabbbbxxxx";
-      console.log(`9. ${testText}`);
-      submitPost();
-      event.preventDefault();
-    });
+//     document.querySelector('#contentPost').addEventListener('click', event => {
+//       const testText = "aaaabbbbxxxx";
+//       console.log(`9. ${testText}`);
+//       submitPost();
+//       event.preventDefault();
+//     });
     function submitPost() {
       //e.preventDefault();
       // console.log("this is testText promise: -> " + testText);
