@@ -11,7 +11,7 @@ var Store = {
   createdAt: " ",
   sessionToken: " "
 };
-const apiurl = "http://qmt.yjbctv.com:8081/news";
+const apiurl = "http://qmt.yjbctv.com/news";
 const options = {
   weekday: 'long',
   year: 'numeric',
